@@ -1,6 +1,6 @@
 # Software Modules Overview
 
-## Main.py
+## main.py
 
 ### Overview
 Main.py file serves as the main controller for the Portable Language Translator. It integrates ASL gesture recognition, speech processing, and hardware control. It uses TensorFlow Lite for ASL recognition, MediaPipe for pose detection, and a custom class that uses Google Cloud for speech processing. The system operates in two modes: ASL and Speech. 
@@ -130,7 +130,7 @@ if __name__ == "__main__":
 ```
 
 
-### Shared.py
+### shared.py
 This file is used as a place for global variables that need to be accessed across different modules in the Portable Language Translator project. This allows for easy state management between the different components.
 
 ### Key Variables
@@ -147,7 +147,7 @@ This file is used as a place for global variables that need to be accessed acros
     - Can be "CAMERA" (showing the camera feed with pose detection) or "TEXT" (showing translated text)
     - Used by TabularUI to determine which widget to display
 
-## Translator_device.py
+## translator_device.py
 This file creates a TranslatorDevice class with useful functionalities surrounding audio transcription and translation. Some important functions are highlighted below:
 
 ### `__init__`
@@ -156,16 +156,16 @@ In the class initialization, many settings are set and can be customized. Specif
 ### VAD_collector
 The class used a VAD (voice activity detection) library to control the conversation flow. Audio is processed in chunks and voice is detected in each chunk using the VAD library whose sensitivity can be changed in the initialization. The VAD waits until it detects a chunk with voice and then ends and sends the audio stream once there is a chunk detected without voice activity to better match conversation flow.
 
-### Transcribe_and_translate
+### transcribe_and_translate
 This is the main functionality of the class. This function takes in the audio chunk, sends it to Google Cloud API to detect the language from the list of possible languages and transcribe the audio. Once that is done it translates the text and sends back the result where it is then taken by other functions to create the audio playback of the translated text.
 
-### Set_settings
+### set_settings
 This function is used to set the base language of the device and the voice gender preferences.
 
-### Start
+### start
 This function is used the start the audio input stream.
 
-### Listen_and_save_transcription
+### listen_and_save_transcription
 This function is used by the ASL mode to take in audio and save the transcribed text to a file to be later displayed on screen.
 
 
@@ -380,13 +380,14 @@ The flow chart shows the dependencies between different Python modules:
 - TabularUI depends on:
     - virtual_keyboard.py - Keyboard UI for the wifi section
     - shared.py - Global variables for state manegement
+    - translator_device.py - Allows the UI to control translation functionality
 - translator_device.py depends on:
     - shared.py - Global variables for state manegement
 - model.tflite requires:
     - convert.py - Converts the model.keras to model.tfile
     - PLT.ipynb - Collects and trains data for the LSTM model.keras
-    
-<img src="images/flow.png" alt="Alternative text" width="800" />
+
+<img src="images/flow.png" alt="Alternative text" width="800"/>
 
 
 
