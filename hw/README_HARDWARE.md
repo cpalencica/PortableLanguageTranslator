@@ -37,7 +37,7 @@ The main hardware components to consider include a USB camera, speaker, and came
 The Raspberry Pi 5 acted as the primary processing device. It handled connectiving to internet and communicating with the Google Translate API. Furthermore it connects to all relevant peripherals of the device including the USB devices, buttons, and display in order to orchestra all relevant interactions.
 
 <p align="center">
-  <img src="./images/pi5.png" width="20%">
+  <img src="./images/pi5.png" width="30%">
   <br> <!-- line break -->
   <b>Raspberry Pi 5</b>
 </p>
@@ -83,7 +83,7 @@ The USB Microphone is directly connected to the USB hub on the Raspberry Pi 5. I
 The buttons are setup with hardware interrupts in order to control volume and mode toggling. These are connected to GPIO Pins 4, 17, and 27. Specifically these buttons are pulled high via an internal pull up resistor. When the software detects that the state has been pulled to GND, it will triggered the attached interrupt event.
 
 <p align="center">
-  <img src="./images/button.png" width="20%">
+  <img src="./images/button.png" width="30%">
   <br> <!-- line break -->
   <b>Button Implementation</b>
 </p>
@@ -92,7 +92,7 @@ The buttons are setup with hardware interrupts in order to control volume and mo
 The touchscreen display is power and connected via a DSI cable. It allows for a direct connection to the Pi homescreen and allows viewing of our User Interface.
 
 <p align="center">
-  <img src="./images/touchscreen.png" width="20%">
+  <img src="./images/touchscreen.png" width="30%">
   <br> <!-- line break -->
   <b>Touchscreen</b>
 </p>
