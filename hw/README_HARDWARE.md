@@ -12,8 +12,8 @@ Specifically, we created 4 relevant components to the final encasing. They inclu
 
 #### Mount
 The mount acts as the basis for the encasing. It permits the mounting of all relevant components of the device. Specifically there are specific locations for the camera, display, and Raspberry Pi to interface with. 
-* [Mount Visual](./cad_files/Mount_3D_Drawing.pdf)
-* [Mount STL File](./cad_files/Display_Mount.stl)
+* [Mount Visual](./cad_files/Mount_3D_Drawing.pdf) 
+* [Mount STL File](./cad_files/Display_Mount.stl) (Please, please, please, click on this link)
 
 #### Backplate
 The backplate serves as a cover for the internal electrical components. Despite being a cover it provides for open grating such that the device can properly ventilate hot air generated from the Raspberry Pi. Additional it acts as mounting point for the battery back. 
