@@ -37,15 +37,18 @@ The main hardware components to consider include a USB camera, speaker, and came
 The Raspberry Pi 5 acted as the primary processing device. It handled connectiving to internet and communicating with the Google Translate API. Furthermore it connects to all relevant peripherals of the device including the USB devices, buttons, and display in order to orchestra all relevant interactions.
 
 <p align="center">
-<img src="./images/pi5.png" width="70%">
-Raspberry Pi 5
+  <img src="./images/pi5.png" width="70%">
+  <br> <!-- line break -->
+  <b>Raspberry Pi 5</b>
 </p>
 
 
 Despite observing high performance guarantees from the Raspberry Pi 5, we noticed high temperatures from the system. Due to this we invested in a cooling system for the device in the form of the Raspberry Pi 5 Active Cooler.
+
 <p align="center">
-<img src="./images/cooler.png" width="70%">
-Active Cooler for Raspberry Pi 5
+  <img src="./images/cooler.png" width="70%">
+  <br> <!-- line break -->
+  <b>Active Cooler for Raspberry Pi 5</b>
 </p>
 
 #### USB Camera
@@ -62,32 +65,36 @@ The USB Camera is directly connected to the USB hub on the Raspberry Pi 5. It ma
 The USB Speaker is directly connected to the USB hub on the Raspberry Pi 5. It acts as an output medium for translations.
 
 <p align="center">
-<img src="./images/speaker.png" width="70%">
-USB Camera
+  <img src="./images/speaker.png" width="70%">
+  <br> <!-- line break -->
+  <b>USB Speaker</b>
 </p>
 
 #### USB Microphone
 The USB Microphone is directly connected to the USB hub on the Raspberry Pi 5. It mainly acts as an input feed to be fed into our Language Translation Software.
 
 <p align="center">
-<img src="./images/microphone.png" width="70%">
-USB Microphone
+  <img src="./images/microphone.png" width="70%">
+  <br> <!-- line break -->
+  <b>USB Microphone</b>
 </p>
 
 #### Buttons
 The buttons are setup with hardware interrupts in order to control volume and mode toggling. These are connected to GPIO Pins 4, 17, and 27. Specifically these buttons are pulled high via an internal pull up resistor. When the software detects that the state has been pulled to GND, it will triggered the attached interrupt event.
 
 <p align="center">
-<img src="./images/button.png" width="70%">
-Button Implementation
+  <img src="./images/button.png" width="70%">
+  <br> <!-- line break -->
+  <b>Button Implementation</b>
 </p>
 
 #### Touchscreen Display
 The touchscreen display is power and connected via a DSI cable. It allows for a direct connection to the Pi homescreen and allows viewing of our User Interface.
 
 <p align="center">
-<img src="./images/touchscreen.png" width="70%">
-Touchscreen
+  <img src="./images/touchscreen.png" width="70%">
+  <br> <!-- line break -->
+  <b>Touchscreen</b>
 </p>
 
 ## System Inside Enclosure
