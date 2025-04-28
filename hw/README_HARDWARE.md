@@ -46,7 +46,7 @@ The Raspberry Pi 5 acted as the primary processing device. It handled connectivi
 Despite observing high performance guarantees from the Raspberry Pi 5, we noticed high temperatures from the system. Due to this we invested in a cooling system for the device in the form of the Raspberry Pi 5 Active Cooler.
 
 <p align="center">
-  <img src="./images/cooler.png" width="70%">
+  <img src="./images/cooler.png" width="40%">
   <br> <!-- line break -->
   <b>Active Cooler for Raspberry Pi 5</b>
 </p>
@@ -55,7 +55,7 @@ Despite observing high performance guarantees from the Raspberry Pi 5, we notice
 The USB Camera is directly connected to the USB hub on the Raspberry Pi 5. It mainly acts as an input feed to be fed into our ASL translation model.
 
 <p align="center">
-  <img src="./images/camera.png" width="70%">
+  <img src="./images/camera.png" width="40%">
   <br> <!-- line break -->
   <b>USB Camera</b>
 </p>
@@ -65,7 +65,7 @@ The USB Camera is directly connected to the USB hub on the Raspberry Pi 5. It ma
 The USB Speaker is directly connected to the USB hub on the Raspberry Pi 5. It acts as an output medium for translations.
 
 <p align="center">
-  <img src="./images/speaker.png" width="70%">
+  <img src="./images/speaker.png" width="40%">
   <br> <!-- line break -->
   <b>USB Speaker</b>
 </p>
