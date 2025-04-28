@@ -52,9 +52,11 @@ Active Cooler for Raspberry Pi 5
 The USB Camera is directly connected to the USB hub on the Raspberry Pi 5. It mainly acts as an input feed to be fed into our ASL translation model.
 
 <p align="center">
-<img src="./images/camera.png" width="70%">
-USB Camera
+  <img src="./images/camera.png" width="70%">
+  <br> <!-- line break -->
+  <b>USB Camera</b>
 </p>
+
 
 #### USB Speaker
 The USB Speaker is directly connected to the USB hub on the Raspberry Pi 5. It acts as an output medium for translations.
