@@ -10,6 +10,14 @@ The Portable Language Translator is a wearable device that enables real-time tra
 - **ASL Gesture Recognition:** Recognizes 5 ASL gestures ("Hello", "Thank You", "Bathroom", "Help", "Yes") and converts them into speech
 - **Two-way Communication:** Enables conversation between ASL users and non-signers
 
+## Repository Structure
+This repository is organized into three main folders:
+- **sw(Software):** Contains all the software-related code, scripts and documentation. A detailed README_SOFTWARE.md specific to the software components can be found inside this folder.
+- **hw(Hardware):** Contains all the hardware-related files, schematics and documentation. The hw folder includes its own README_HARDWARE.md with hardware-specific details.
+- **fw(Firmware):** Contains firmware code and documentation. The fw folder also has a dedicated README_FIRMWARE.md explaining the firmware components.
+
+Each subfolder provides its own README that describes the specific components and instructions that relate to that part of the Portable Language Translator.
+
 ## Technical Architecture
 ### Hardware Components
 - Raspberry Pi 5
