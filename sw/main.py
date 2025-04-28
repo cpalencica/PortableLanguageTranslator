@@ -23,7 +23,7 @@ from shared import latest_frame
 actions = np.array(["hello", "thank you", "nothing", "help", "yes", "bathroom"])
 
 # Load the TFLite model
-model_path = "/home/plt/plt_project/Portable-Language-Translator/newest.tflite"
+model_path = "/home/plt/plt_project/Portable-Language-Translator/model.tflite"
 interpreter = tf.lite.Interpreter(model_path=model_path)
 interpreter.allocate_tensors()
 input_details = interpreter.get_input_details()
@@ -106,18 +106,6 @@ asl_thread.start()
 # ==================== FLASK & TRANSLATOR SETUP ====================
 
 translator_device = TranslatorDevice()
-# app = Flask(__name__)
-# CORS(app)
-
-# @app.route('/set_settings', methods=['POST'])
-# def set_settings():
-#     data = request.get_json()
-#     base_language = data.get('baseLanguage')
-#     gender = data.get('gender')
-#     if not base_language or not gender:
-#         return jsonify({'status': 'error', 'message': 'Invalid settings.'}), 400
-#     translator_device.set_settings(base_language, gender)
-#     return jsonify({'status': 'success', 'message': 'Settings updated.'}), 200
 
 def speech_mode_logic():
     """Activate speech mode."""
@@ -140,8 +128,6 @@ translator_thread = threading.Thread(target=translator_device.start, daemon=True
 translator_thread.start()
 translator_device.translator_thread = translator_thread
 
-# flask_thread = threading.Thread(target=lambda: app.run(host="0.0.0.0", port=5000), daemon=True)
-# flask_thread.start()
 
 # ==================== PHYSICAL BUTTON & VOLUME SETUP ====================
     
@@ -283,9 +269,6 @@ def asl_processing_loop():
             cv2.putText(image, f"Sentence: {sentence_text}", (10, 30),
                         cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
             
-            # Draw current prediction below the sentence
-            # cv2.putText(image, f"Predicting: {current_prediction}", (10, 70),
-            #             cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
             shared.latest_frame = image.copy()  # Update this line to use the annotated image
             frame_count += 1

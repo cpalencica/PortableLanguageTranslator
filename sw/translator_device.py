@@ -12,16 +12,14 @@ from google.cloud import texttospeech
 from google.cloud import translate_v2 as translate
 import webrtcvad  # Voice Activity Detection library
 from pydub import AudioSegment
-# from pydub.playback import play
 import time
 from pydub.playback import _play_with_simpleaudio as play
 import pygame
 import html
 
 # Set your environment variable for Google Cloud credentials
-# os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = '/home/plt/Desktop/optimum-reactor-449320-e8-dcb220f309a5.json'
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = '/home/plt/optimum-reactor-449320-e8-dcb220f309a5.json'
-# os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "C:\\Users\\yohan\\Desktop\\optimum-reactor-449320-e8-dcb220f309a5.json"
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'add/path/to/your/credentials.json'
+
 
 class TranslatorDevice:
     def __init__(self):
@@ -201,68 +199,6 @@ class TranslatorDevice:
         
         self.synthesize_speech(translated_text, target_language)
 
-    # def transcribe_and_translate(self, audio_bytes):
-    #     """Transcribe the audio, detect language, set mode, translate, and synthesize the translated text."""
-    #     start_time = time.time()
-
-    #     audio = speech.RecognitionAudio(content=audio_bytes)
-    #     config = speech.RecognitionConfig(
-    #         encoding=speech.RecognitionConfig.AudioEncoding.LINEAR16,
-    #         language_code=self.base_language,  # Base language
-    #         sample_rate_hertz=self.SAMPLE_RATE,
-    #         alternative_language_codes=[lang for lang in self.supported_languages if lang != self.base_language]
-    #     )
-
-    #     response = self.speech_client.recognize(config=config, audio=audio)
-
-    #     if not response.results:
-    #         return
-
-    #     full_transcript = ""
-    #     for result in response.results:
-    #         alternative = result.alternatives[0]
-    #         transcript = alternative.transcript
-    #         full_transcript += transcript + " "
-
-    #     full_transcript = full_transcript.strip()
-    #     print(f"Transcription result: {full_transcript}")
-
-    #     detection = self.translate_client.detect_language(full_transcript)
-    #     detected_language = detection['language']
-
-    #     with self.language_lock:
-    #         if self.mode is None or (detected_language != self.base_language[:2] and detected_language != self.mode[1][:2]):
-    #             found_pair = None
-    #             for pair in self.lang_combos:
-    #                 if pair[0][:2] == self.base_language[:2] and pair[1][:2] == detected_language:
-    #                     found_pair = pair
-    #                     break
-
-    #             if found_pair:
-    #                 self.mode = found_pair
-    #             else:
-    #                 return
-
-    #         if detected_language == self.mode[0][:2]:
-    #             target_language = self.mode[1]
-    #         else:
-    #             target_language = self.mode[0]
-                
-    #     # with open("als_speech_audio_transcription.txt", 'w') as file:
-    #     #     pass        
-
-    #     translated_text = self.translate_text(full_transcript, target_language[:2])
-        
-    #     print(f"Translated text: {translated_text}")
-        
-    #     with open("als_speech_audio_transcription.txt", "w", encoding="utf-8") as f:
-    #         f.write(translated_text)
-
-    #     playback_start_time = time.time()
-    #     print(f"Total time from sending audio to playback: {playback_start_time - start_time:.2f} seconds")
-
-    #     self.synthesize_speech(translated_text, target_language)
-
     def get_voice_variant(self, language_code, ssml_gender):
         """Get the voice variant letter based on language code and gender."""
         voice_variants = {
@@ -323,8 +259,7 @@ class TranslatorDevice:
                 time.sleep(0.1)
 
             print("Audio playback finished.")
-            # Wait extra time for residual sound to subside
-            # time.sleep(0.5)
+
             # Resume microphone input
             self.resume_stream()
 
@@ -380,43 +315,6 @@ class TranslatorDevice:
             self.stream.close()
             sys.exit()
 
-    # def start(self):
-    #     print("Starting automatic translator device.")
-    #     try:
-    #         # Start the persistent audio stream
-    #         self.start_stream()
-    #         print("Audio input stream opened.")
-    #         while True:
-    #             if not self.active:
-    #                 time.sleep(0.1)
-    #                 continue
-
-    #             current_base_language = self.base_language
-    #             print(f"\nListening for speech in: {current_base_language} (Mode: {self.mode})")
-
-    #             frames_generator = self.vad_collector(
-    #                 self.SAMPLE_RATE,
-    #                 self.FRAME_DURATION,
-    #                 padding_duration_ms=300,
-    #                 stream=self.stream
-    #             )
-
-    #             for audio_data in frames_generator:
-    #                 if self.reset_time and time.time() < self.reset_time + 0.5:
-    #                     print("Discarding residual audio segment due to recent mode switch...")
-    #                     continue
-    #                 if not self.active:
-    #                     break
-    #                 print("Processing captured voice data...")
-    #                 self.transcribe_and_translate(audio_data)
-    #                 if self.base_language != current_base_language:
-    #                     print("Base language changed during processing. Restarting listening loop.")
-    #                     break
-
-    #     except KeyboardInterrupt:
-    #         print("\nExiting...")
-    #         self.stream.close()
-    #         sys.exit()
 
     # FOR ASL MODE
     def listen_and_save_transcription(self, file_path):
